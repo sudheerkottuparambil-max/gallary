@@ -1,0 +1,147 @@
+:root{
+  --bg:#0f1724;
+  --card:#111214;
+  --muted:#bfc9cf;
+  --accent:#ffb400;
+  --radius:12px;
+  --frame-thick:10px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter, "Poppins", system-ui, Arial, sans-serif;
+  background:linear-gradient(180deg,#071224 0%,#091827 60%);
+  color:var(--muted);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* page wrapper */
+.page{max-width:1100px;margin:40px auto;padding:20px}
+
+/* card */
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:28px;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,0.5);
+}
+
+.video-section h2{
+  margin:0 0 14px 0;color:#fff;font-size:1.5rem;
+}
+
+/* frame container */
+.video-frame{
+  position:relative;
+  width:100%;
+  max-width:1000px;
+  margin:0 auto;
+  border-radius:calc(var(--radius) + var(--frame-thick));
+  padding:calc(var(--frame-thick));
+  background:linear-gradient(135deg, rgba(255,180,0,0.06), rgba(255,255,255,0.02));
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6), 0 0 30px rgba(255,180,0,0.03) inset;
+}
+
+/* keep 16:9 aspect ratio */
+.video-frame::before{
+  content:"";
+  display:block;
+  padding-top:56.25%; /* 16:9 ratio */
+}
+
+/* absolute-position the video inside the frame */
+.project-video{
+  position:absolute;
+  top:var(--frame-thick);
+  left:var(--frame-thick);
+  right:var(--frame-thick);
+  bottom:var(--frame-thick);
+  width:calc(100% - (var(--frame-thick)*2));
+  height:calc(100% - (var(--frame-thick)*2));
+  border-radius:10px;
+  background:#000;
+  object-fit:cover; /* fill frame while preserving aspect */
+  box-shadow:0 8px 20px rgba(0,0,0,0.6);
+  outline: 2px solid rgba(255,255,255,0.03);
+}
+
+/* frame decorative accents (corners) */
+.frame-accent{
+  position:absolute;
+  width:38px;height:38px;border-radius:8px;
+  background:linear-gradient(180deg,var(--accent), #e6a000);
+  opacity:0.08;pointer-events:none;
+  box-shadow:0 6px 20px rgba(255,180,0,0.08);
+}
+.frame-accent.top-left{top:8px;left:8px;transform:rotate(8deg);opacity:0.12}
+.frame-accent.top-right{top:8px;right:8px;transform:rotate(-8deg);opacity:0.12}
+.frame-accent.bottom-left{bottom:8px;left:8px;transform:rotate(-8deg)}
+.frame-accent.bottom-right{bottom:8px;right:8px;transform:rotate(8deg)}
+
+/* description */
+.video-desc{margin-top:14px;color:var(--muted);font-size:0.98rem;text-align:center}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding: 20px 0;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  letter-spacing: 0.5px;
+}
+/* Back to Home button wrapper (centers above footer) */
+.back-home-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 18px 0 6px; /* space between content and footer */
+  padding: 0 16px;
+}
+
+/* Button style */
+.back-home-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--accent, #ffb400), #e6a000);
+  color: #111;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(255, 180, 0, 0.12);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+  border: none;
+}
+
+/* Hover / active */
+.back-home-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(255, 180, 0, 0.18);
+  filter: brightness(1.04);
+}
+
+/* Focus (keyboard accessible) */
+.back-home-btn:focus {
+  outline: 3px solid rgba(255, 180, 0, 0.22);
+  outline-offset: 4px;
+  border-radius: 10px;
+}
+
+/* Small screens */
+@media (max-width: 520px) {
+  .back-home-btn {
+    padding: 10px 14px;
+    font-size: 0.95rem;
+  }
+}
+
+
+/* Responsive tweaks */
+@media (max-width:880px){
+  .video-frame{padding:8px}
+  .video-frame::before{padding-top:56.25%}
+  .project-video{top:8px;left:8px;right:8px;bottom:8px}
+}
+
+
