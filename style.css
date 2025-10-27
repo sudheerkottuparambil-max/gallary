@@ -1,0 +1,132 @@
+/* style.css */
+
+/* General layout */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #0f1724;
+  color: #e6eef8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 20px;
+}
+
+/* Header layout */
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 30px;
+  gap: 15px; /* space between logo and title */
+}
+
+/* Smaller Adobe icon */
+.logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(255, 45, 85, 0.3);
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 45, 85, 0.4);
+}
+
+/* Title */
+h1 {
+  font-size: 28px;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Description text */
+.description {
+  max-width: 800px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 10px auto 10px;
+  color: #d7e6fb;
+}
+
+/* Image styling */
+.image-wrap {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.image-wrap img {
+  width: 800px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+  transition: transform 0.4s ease;
+}
+
+.image-wrap img:hover {
+  transform: scale(1.02);
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+  header {
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .description {
+    font-size: 15px;
+    padding: 0 10px;
+  }
+
+  .image-wrap img {
+    width: 100%;
+    height: auto;
+  }
+}
+/* Back to Home Button */
+.back-button {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.back-button a {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff2d55, #9b1f6a);
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  box-shadow: 0 6px 20px rgba(255, 45, 85, 0.3);
+  transition: all 0.3s ease;
+}
+
+.back-button a:hover {
+  background: linear-gradient(135deg, #ff4b6a, #c92675);
+  box-shadow: 0 8px 25px rgba(255, 45, 85, 0.5);
+  transform: translateY(-2px);
+}
